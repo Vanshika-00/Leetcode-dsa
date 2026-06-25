@@ -1,30 +1,32 @@
 class Solution {
+
+    public void swap (int[] arr , int mid, int lo){
+        int temp=arr[mid];
+        arr[mid]=arr[lo];
+        arr[lo]=temp;
+    }
     public void sortColors(int[] arr) {
-        
 
         int n = arr.length;
-        int noOfZeros=0;
-        int noOfOnes=0;
+        int lo=0;
+        int mid=0;
+        int high=n-1;
 
-        for(int i=0;i<n;i++){
-            if(arr[i]==0){
-                noOfZeros++;
+        while(mid<=high){
+            if(arr[mid]==0){
+                swap(arr , mid , lo);
+                lo++;
+                mid++;
             }
-            else if(arr[i]==1){
-                noOfOnes++;
-            }
-        }
-        for(int i=0;i<n;i++){
-            
-            if(i<noOfZeros){
-                arr[i]=0;
-            }
-            else if(i<noOfZeros+noOfOnes){
-                arr[i]=1;
+            else if(arr[mid]==1){
+                mid++;
             }
             else{
-                arr[i]=2;
+                swap(arr,mid,high);
+                high--;
             }
         }
+
+       
     }
 }
