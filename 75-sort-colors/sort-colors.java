@@ -5,6 +5,7 @@ class Solution {
         arr[mid]=arr[lo];
         arr[lo]=temp;
     }
+
     public void sortColors(int[] arr) {
 
         int n = arr.length;
@@ -12,21 +13,19 @@ class Solution {
         int mid=0;
         int high=n-1;
 
-        while(mid<=high){
+        while (mid<=high) { 
             if(arr[mid]==0){
-                swap(arr , mid , lo);
+                swap(arr,lo,mid);
                 lo++;
                 mid++;
             }
-            else if(arr[mid]==1){
+            else if(arr[mid]==1) {
                 mid++;
             }
-            else{
+            else { // arr[mid]==2
                 swap(arr,mid,high);
                 high--;
             }
-        }
-
-       
+        } 
     }
 }
