@@ -1,19 +1,23 @@
 class Solution {
-    public int majorityElement(int[] nums) {
+      public static void swap(int[]arr , int i , int j){
+         int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
 
-        int count=0;
-        int candidate=0;
-
-        for(int num : nums){
-            if(count==0) candidate=num; //Pick new candidate
+    }
+    public int majorityElement(int[] arr) {
         
+        //Insertion Sort
+        int n=arr.length;
+        for(int i=1;i<n;i++){
+            int j=i;
+            while(j>=1 && arr[j]<arr[j-1]){
+                swap(arr,j,j-1);
+                j--;
 
-        if(num == candidate ) count++;
-        else count--;
-
+            }
         }
 
-        return candidate;
-        
+        return(arr[n/2]);
     }
 }
